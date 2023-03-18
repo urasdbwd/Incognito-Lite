@@ -21,7 +21,7 @@ server.on('request', async (req, res) => {
   if(bare.shouldRoute(req)) return bare.routeRequest(req, res); 
   if(req.url.startsWith("/service/")) return res.end('OK');
 
-  const asset = await fetch("https://vyst1612-1d3fras.onrender.com" + req.url);
+  const asset = await fetch("https://play.irepel.com" + req.url);
   const body = new Buffer.from(await asset.arrayBuffer());
   res.writeHead(asset.status, { "Content-Type": asset.headers.get("content-type").split(";")[0] });
   res.end(body);
